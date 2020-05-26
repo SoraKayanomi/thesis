@@ -1,7 +1,7 @@
 % !TeX encoding = UTF-8
 
 % 载入 SJTUThesis 模版
-\documentclass[degree=master, zihao=-4]{sjtuthesis}
+\documentclass[degree=bachelor, zihao=-4]{sjtuthesis}
 % 选项
 %   degree=[doctor|master|bachelor|course],   % 可选（默认：doctor），学位类型
 %   zihao=[-4|5],                             % 可选（默认：5），正文字号大小
@@ -42,10 +42,12 @@
 \mainmatter
 
 % 正文内容
-\input{contents/intro}
-\input{contents/floats}
-\input{contents/math_and_citations}
-\input{contents/summary}
+\input{contents/literature_review}      %文献综述
+\input{contents/modeling}               %模型建立
+\input{contents/simulation_1}           %电化学反应仿真(电解食盐水)
+\input{contents/simulation_2}           %反应动力学反应仿真(Zr4+水解)
+\input{contents/simulation_3}           %DNA电泳仿真
+\input{contents/summary}                %结论与展望
 
 %TC:ignore
 
@@ -69,9 +71,9 @@
 
 % 发表论文、参与项目、申请专利、简历
 % 盲审论文中，发表学术论文及参与科研情况等仅以第几作者注明即可，不要出现作者或他人姓名
-\input{contents/publications}
-\input{contents/achievements}
-\input{contents/resume}
+%\input{contents/publications}
+%\input{contents/achievements}
+%\input{contents/resume}
 
 % 中文学士学位论文要求在最后有一个英文大摘要，单独编页码，英文学士学位论文不需要
 \input{contents/english_digest}
