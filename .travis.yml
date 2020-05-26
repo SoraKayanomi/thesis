@@ -1,0 +1,24 @@
+dist: xenial
+
+language: shell
+
+matrix:
+  include:
+    - install: source .github/ci/install-ubuntu-texlive.sh
+      cache:
+        directories:
+          - /tmp/texlive
+          - $HOME/.texlive
+    - install: source .github/ci/install-ubuntu-miktex.sh
+      cache:
+        directories:
+          - $HOME/.miktex
+
+before_script:
+  - sed -i 's/documentclass\[/documentclass[fontset=fandol, /' main.tex
+
+script:
+  - latexmk -quiet -halt-on-error -time main.tex
+
+after_failure:
+  - cat main.log

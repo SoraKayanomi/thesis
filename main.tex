@@ -1,0 +1,81 @@
+% !TeX encoding = UTF-8
+
+% 载入 SJTUThesis 模版
+\documentclass[degree=master, zihao=-4]{sjtuthesis}
+% 选项
+%   degree=[doctor|master|bachelor|course],   % 可选（默认：doctor），学位类型
+%   zihao=[-4|5],                             % 可选（默认：5），正文字号大小
+%   language=[chinese|english],               % 可选（默认：chinese），论文的主要语言
+%   review,                                   % 可选（默认：关闭），盲审模式
+%   [twoside|oneside]                         % 可选（默认：twoside），单双页模式
+
+% 论文基本配置，加载宏包等全局配置
+\input{sjtusetup}
+
+\begin{document}
+
+%TC:ignore
+
+% 无编号内容：中英文论文封面、授权页
+\maketitlepage
+\makeorigpage*
+\makeauthpage[scans/authorization.pdf]
+
+% 使用罗马数字对前言编号
+\frontmatter
+
+% 摘要
+\input{contents/abstract}
+
+% 目录、插图目录、表格目录
+\tableofcontents
+\listoffigures*
+\listoftables*
+\listofalgorithms*
+
+% 主要符号、缩略词对照表
+\input{contents/nomenclature}
+
+%TC:endignore
+
+% 使用阿拉伯数字对正文编号
+\mainmatter
+
+% 正文内容
+\input{contents/intro}
+\input{contents/floats}
+\input{contents/math_and_citations}
+\input{contents/summary}
+
+%TC:ignore
+
+% 使用英文字母对附录编号
+\appendix
+
+% 附录内容，本科学位论文可以用翻译的文献替代。
+\input{contents/app_maxwell_equations}
+\input{contents/app_flow_chart}
+
+% 文后无编号部分
+\backmatter
+
+% 参考资料
+\printbibliography[heading=bibintoc]
+
+% 用于盲审的论文需隐去致谢、发表论文、参与项目、申请专利、简历
+
+% 致谢
+\input{contents/acknowledgements}
+
+% 发表论文、参与项目、申请专利、简历
+% 盲审论文中，发表学术论文及参与科研情况等仅以第几作者注明即可，不要出现作者或他人姓名
+\input{contents/publications}
+\input{contents/achievements}
+\input{contents/resume}
+
+% 中文学士学位论文要求在最后有一个英文大摘要，单独编页码，英文学士学位论文不需要
+\input{contents/english_digest}
+
+%TC:endignore
+
+\end{document}
