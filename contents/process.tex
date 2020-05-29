@@ -1,10 +1,12 @@
 % !TEX root = ../main.tex
 \chapter{DNA分子的释放过程简述}
+
 \section{DNA/Zr$^{4+}$层层自组装结构}
 \subsection{组装过程}
 ——用到的组装方法
 \subsection{理化性质}
 ——介绍该结构的物理与化学性质
+
 \section{层层自组装结构受控分解的原理}
 \subsection{电信号激励下的电化学反应}
 ——通过电极电位表等客观条件，推断出通电后发生的电极反应
@@ -14,13 +16,128 @@
 ——介绍在浓度梯度力与电场力共同作用下DNA的行为
 \subsection{反应过程总述}
 ——总结反应过程，插入反应过程图等
+
 \section{基本控制方程}
 \subsection{扩散定律}
-——主要用到菲克定律，稀溶液中粒子的扩散。
+菲克定律由阿道夫·菲克于十九世纪提出，对扩散给出了最简单的描述：
+\begin{itemize}[leftmargin=60pt]
+    \item [1)]由扩散引起的摩尔通量与浓度梯度成正比。
+    \item [2)]空间上某一点的浓度变化率与浓度的空间二阶导数成正比。
+\end{itemize}
+
+菲克第一定律可以表示为：
+\begin{equation}
+    \mathbf{N_i}=-D_i\nabla{c_i}
+\end{equation}
+
+对于物质$i$，$\mathbf{N_i}$是摩尔通量($mol\cdot{m^{-2}\cdot{s^{-1}}}$)，$D_i$是扩散系数($m^2\cdot{s^{-1}}$)，$c_i$是浓度($mol\cdot{m^{-3}}$)。
+根据连续性方程：
+\begin{equation}
+    \frac{\partial c_i}{\partial t}+\nabla\cdot{N_i}=0
+\end{equation}
+
+可以推导出菲克第二定律：
+\begin{equation}
+    \frac{\partial c_i}{\partial t}=D_i\nabla^2{c_i}
+\end{equation}
+
+在稀溶液中，我们假设$D_i$是一个常数。它描述了自由扩散时，浓度随时间的变化关系。\cite{Sakaguchi2018} 
 \subsection{Nernst-Einstein 关系}
-——得到物质化合价和迁移率与扩散率的关系\parencite{Ferrari1985}
+考虑外力作用于扩散粒子：
+\begin{equation}
+    \mathbf{v_d}=m_{abs}\mathbf{F}
+\end{equation}
+
+在这一本构关系中，$\mathbf{v_d}$表示漂移速度($m\cdot{s^{-1}}$)，
+$m_{abs}$是绝对迁移率($N\cdot{s\cdot{m^{-1}}}$)，$F$是作用力($N$)。
+考虑浓度梯度力同时作用于粒子，粒子的总通量$\mathbf{N_i}$可以表达为：
+\begin{equation}
+    \mathbf{N_i}=-D_i\nabla{c_i}+m_{i,abs}c_i\mathbf{F}
+\end{equation}
+
+当总通量为$0$时，扩散作用于迁移作用引起的通量大小相等且方向相反：
+\begin{equation}
+    \nabla{c_i}=\frac{m_{i,abs}}{D_i}c_i\mathbf{F}
+\end{equation}
+
+各个方向上的净通量为$0$时，可以假设扩散与迁移达到平衡。此时的浓度分部可以用Boltzmann方程来描述：
+\begin{equation}
+    c_i=c_{i,0}exp(-\frac{U}{kT})
+\end{equation}
+
+其中，$c_{i,0}$表示势能为零时的浓度($mol\cdot{m^{-3}}$)，$U$表示分子的势能($J$)，
+$k$表示Boltzmann常数($J\cdot{K^{-1}}$)，T是绝对温度(K)。此时该浓度场的梯度为：
+\begin{equation}
+    \nabla{c_i}=-c_{i,0}exp(-\frac{U}{kT})\frac{1}{kT}\nabla{U}
+\end{equation}
+
+根据定义，力是势能的负梯度：
+\begin{equation}
+    \mathbf{F}=-\nabla{U}
+\end{equation}
+
+结合等式(2.7)与(2.9)：
+\begin{equation}
+    \frac{m_{i,abs}}{D_i}c_i\mathbf{F}=\frac{1}{kT}c_i\mathbf{F}
+\end{equation}
+
+化简后得到：
+\begin{equation}
+    m_{i,abs}=\frac{D_i}{kT}
+\end{equation}
+
+该等式描述了带点粒子的扩散系数$D_i$与扩散迁移率$m_{i,abs}$的关系，被称为Nernst-Einstein关系。\cite{Mehrer2007,CONWAY1972250}
 \subsection{Nernst-Planck 方程}
-——电化学系统中离子的运动，计算粒子通量
+在电场作用下，带电粒子受到电场力$\mathbf{F}$：
+\begin{equation}
+    \mathbf{F}=-z_ie_0\nabla\phi
+\end{equation}
+
+其中，$z_i$表示粒子的电荷数，$e_0$是电子的基本电荷，$\phi$是电势($V$)，$−\nabla{\phi}$ 表示电场。
+我们定义$u_i=e_0m_{abs}$为该粒子的电化学迁移率，此时，漂移速度可由下式求得：
+\begin{equation}
+   \mathbf{v_d}=-z_iu_i\nabla\phi
+\end{equation}
+
+由此得到的离子$i$的迁移通量是漂移速度$v_d$和离子浓度$c_i$的乘积，此通量的贡献称为离子迁移或电迁移：
+\begin{equation}
+    \mathbf{N_{i,migr}}=-z_iu_ic_i\nabla\phi
+\end{equation}
+
+在一般的稀释电解质中，通量贡献可能有以下三种来源：扩散、迁移和对流：
+\begin{equation}
+    N_i=-\overbrace{D_i\nabla{c_i}}^{Diff}-\overbrace{z_iu_ic_i\nabla\phi}^{Migr}+\overbrace{c_i\mathbf{u}}^{Conv}
+\end{equation}
+
+其中$\mathbf{u}$是电解质速度($m\cdot{s^{-1}}$)。由Nernst-Einstein关系我们得到电化学迁移率$u_i$与扩散率$D_i$的关系。
+代入到式(2.2)的连续性方程：
+\begin{equation}
+    \frac{\partial c_i}{\partial t}=\nabla{(D_i\nabla{c_i}+\frac{D_iz_ie_0}{kT}c_i\nabla\phi+c_i\mathbf{u})}
+\end{equation}
+
+该等式描述了流体介质中带电化学物质的运动情况，被称为Nernst–Planck方程。\cite{Mehrer2007}
+\subsection{离子迁移}
+电解质中的电流密度$\mathbf{i}$可以通过该电解质中所有离子的贡献之和求得：
+\begin{equation}
+    \mathbf{i}=F\sum_i{z_i\mathbf{N_i}}
+\end{equation}
+
+式中，$F$为法拉第常数。将式(2.)的通量代入到该方程，可以得到：
+\begin{equation}
+    \mathbf{i}=F\sum_i(-z_iD_i\nabla{c_i}-z_i^2u_ic_i\nabla\phi)+F\sum_iz_ic_i
+\end{equation}
+
+在大多数电化学反应中，除双电层区域外，都可以假设电解质呈电中性：
+\begin{equation}
+    F\sum_iz_ic_i=0
+\end{equation}
+
+对流使得浓度保持均匀的分布，因此，在靠近电极的区域外，电解槽中的任何位置都具有恒定的电导率$\kappa$，电流密度表达式变为：
+\begin{equation}
+    \mathbf{i}=-\overbrace{F\sum_i(z_i^2u_ic_i)}^{Conductivity,\kappa}\nabla\phi
+\end{equation}
+
+这个方程表明，组成恒定的电解质中的电流完全由迁移产生。电流遵循欧姆定律，电导率由电解质中每个组成离子的迁移贡献总和决定。\cite{Smedley1980}
 \subsection{化学反应速率方程}
 ——反应物浓度影响反应速度
 \subsection{Butler-Volmer 方程}
