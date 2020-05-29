@@ -1,7 +1,7 @@
 % !TeX encoding = UTF-8
 
 % 载入 SJTUThesis 模版
-\documentclass[degree=bachelor, zihao=-4]{sjtuthesis}
+\documentclass[degree=bachelor, zihao=5]{sjtuthesis}
 % 选项
 %   degree=[doctor|master|bachelor|course],   % 可选（默认：doctor），学位类型
 %   zihao=[-4|5],                             % 可选（默认：5），正文字号大小
@@ -31,7 +31,7 @@
 \tableofcontents
 \listoffigures*
 \listoftables*
-\listofalgorithms*
+\listofalgorithms* %算法
 
 % 主要符号、缩略词对照表
 \input{contents/nomenclature}
@@ -42,11 +42,11 @@
 \mainmatter
 
 % 正文内容
-\input{contents/literature_review}      %文献综述
-\input{contents/modeling}               %模型建立
-\input{contents/simulation_1}           %电化学反应仿真(电解食盐水)
-\input{contents/simulation_2}           %反应动力学反应仿真(Zr4+水解)
-\input{contents/simulation_3}           %DNA电泳仿真
+\input{contents/introduction}           %引言
+\input{contents/process.tex}            %释放过程介绍
+%\input{contents/modeling}              %模型建立
+\input{contents/simulation}             %仿真
+\input{contents/discussion}             %讨论如何释放
 \input{contents/summary}                %结论与展望
 
 %TC:ignore
@@ -55,8 +55,8 @@
 \appendix
 
 % 附录内容，本科学位论文可以用翻译的文献替代。
-\input{contents/app_maxwell_equations}
-\input{contents/app_flow_chart}
+%\input{contents/app_maxwell_equations}
+%\input{contents/app_flow_chart}
 
 % 文后无编号部分
 \backmatter
