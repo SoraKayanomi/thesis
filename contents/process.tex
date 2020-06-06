@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
-\chapter{DNA分子的释放过程简述}
+\chapter{系统的通信原理}
 
-\section{DNA/$\ce{Zr^{4+}}$层层自组装结构}
+\section{DNA/$\ce{Zr^{4+}}$LbL结构}
 \subsection{组装过程}
 多层膜的制造过程包括
 三步：清洗金薄膜，孵化金
@@ -25,7 +25,7 @@
     \includegraphics[scale=0.5]{Incubation process and repeated cyclic deposition process.jpg}\\
     1)MUA乙醇溶液 2)纯化水 3)$\ce{Zr^{4+}}$溶液 \\
     4)ssDNA溶液 5)氮气\\
-    \caption{DNA/$\ce{Zr^{4+}}$层层自组装结构组装过程}
+    \caption{DNA/$\ce{Zr^{4+}}$LbL结构组装过程}
     \label{fig:incubation_process}
 \end{figure}
 
@@ -38,7 +38,7 @@
 双电层电容为$1.89\pm0.06\mu F$，赝电容为$0.46\pm0.04\mu F$。
 
 
-\section{层层自组装结构受控分解的原理}
+\section{通信过程}
 \subsection{电信号激励下的电化学反应}
 标准电极电位的大小反映了电极在进行电极反应时，相对于标准氢电极的得失电子的能力。
 标准电极电位的值越大，就越容易获得电子，换句话说它的氧化性就越强；反之，
@@ -97,20 +97,21 @@ $\ce{H2}$气体与$\ce{OH-}$离子；阳极处，$\ce{Cl-}$离子的还原性强
     \label{Zr4+水解}
 \end{equation}
 
-$c_{\ce{H+}}$的降低会促进水解反应的发生，这会导致固定在LBL结构中的$\ce{Zr^4+}$不断水解成$\ce{ZrO2}$，
-从而引起LBL结构的分解，并释放出DNA分子。
+$c_{\ce{H+}}$的降低会促进水解反应的发生，这会导致固定在LbL结构中的$\ce{Zr^4+}$不断水解成$\ce{ZrO2}$，
+从而引起LbL结构的分解，并释放出DNA分子。
 
-\subsection{电场影响下DNA分子运动}
+\subsection{电场影响下的DNA分子运动}
 DNA分子的骨架由大量的磷酸基团脱水缩合连接，磷酸骨架的每个残基带有一个负电荷，所以DNA分子整体是带负电荷的
 \cite{Lipfert2014}。在电信号的激励下，DNA会向远离极板的方向移动；而$\ce{Zr^4+}$带正电荷，会向靠近极板的方向
 移动，并阻碍DNA分子的扩散。所以只有在$\ce{Zr^4+}$被水解反应消耗后，DNA才会被释放。
 
-\subsection{反应过程总述}
+\subsection{通信过程总述}
 在电信号的激励下，阴极处会发生式~\ref{equation:cathode_reaction}
 所描述的化学反应，这使得阴极处$\ce{OH-}$浓度增加，促使$\ce{Zr^4+}$
 发生式~\ref{Zr4+水解}描述的水解反应，$\ce{Zr^4+}$的消耗导致了
-DNA/$\ce{Zr^{4+}}$层层自组装结构的分解，被释放到溶液中的DNA在
-浓度梯度力与电场力的共同作用下，在溶液中扩散。
+DNA/$\ce{Zr^{4+}}$LbL结构的分解，被释放到溶液中的DNA在
+浓度梯度力与电场力的共同作用下，在溶液中扩散。这会引起反应容器中
+固定位置处的DNA浓度随时间而变化。
 %缺图
 
 \section{基本控制方程}
