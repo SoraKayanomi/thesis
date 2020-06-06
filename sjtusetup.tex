@@ -20,18 +20,18 @@
     %
     % 关键词
     %
-    keywords        = {DNA分子, COMSOL, 爱国荣校},
-    keywords*       = {SJTU, master thesis, XeTeX/LaTeX template},
+    keywords        = {DNA分子, COMSOL, 电场, Butler-Volmer},
+    keywords*       = {DNA molecule, COMSOL, Electric field, Butler-Volmer},
     %
     % 姓名
     %
     author          = {孙\quad{}文韬},
-    author*         = {Wentao Sun},
+    author*         = {Wentao\quad{}Sun},
     %
     % 指导教师
     %
-    supervisor      = {闫浩教授},
-    supervisor*     = {Prof. Hao Yan},
+    supervisor      = {闫浩},
+    supervisor*     = {Hao Yan},
     %
     % 副指导教师
     %
@@ -107,10 +107,10 @@
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
 
 % 确定浮动对象的位置，可以使用 [H]，强制将浮动对象放到这里（可能效果很差）
-% \usepackage{float}
+\usepackage{float}
 
 % 固定宽度的表格
-% \usepackage{tabularx}
+\usepackage{tabularx}
 
 % 表格中支持跨行
 \usepackage{multirow}
@@ -143,6 +143,9 @@
 
 % 化学方程式宏包
 \usepackage[version=4]{mhchem}
+
+%tikz宏包
+\usepackage{tikz}
 
 % 一些文档中用到的 logo
 \usepackage{hologo}
