@@ -1,48 +1,75 @@
 % !TEX root = ../main.tex
 
 \begin{abstract}
-  SMC（Synthetic Molecular communications，合成分子通信）是一个充满前景的研究热点，
-  它在微小尺度上的物质运输与信息传输上展现出了无限的潜力，适用于药物传输的精细控制
-  、基因工程、人工合成蛋白质等领域。信号调制器是SMC系统的的重要组成部分，本文的研究基于
-  一种微尺度SMC调制器。该调制器采用LbL（Layer-by-layer，逐层）自组装技术在金薄膜表面固定DNA，
-  通过电化学反应实现LbL结构的分解与DNA的受控释放，将电信号转换为DNA分子信号。
-  该SMC调制器在先前的实验中
-  已成功的实现了将二进制信号向DNA分子信号的转换，通信速度可以达到1$bit/min$。
+人工分子通信，是建立纳米机器网络的重要通信方案
+，可以解决目前单个纳米机器能力有限，导致应用研究难以开展的难题
+。利用人工分子通信技术构建的纳米网络，可以使得整个纳米机
+器群体在更广阔的范围内执行更复杂的任务，进而有利于纳
+米机器应用的开展，比如在人体内通过大量纳米机器的合作进
+微观手术或者载送药物等。因此，人工分子通信是一个充满前
+景的研究方向，受到广泛关注。\\
 
-  目前还没有研究者对该LbL结构在受电信号控制下分解并释放DNA这一过程进行完整的数学建模。
-  将电化学反应模型应用于对LbL结构的分解过程的研究对DNA受控释放的原理的理解有一定的指导意义，
-  使用扩散模型对DNA释放后的运动进行仿真，可以描述DNA分子信号传输过程，对SMC系统的信道与解调器设计
-  提供数据支持。
-  并可以根据仿真结果，对SMC系统进行系统优化。
+目前人工分子通信领域的主要研究工作集中在理论上，至今没
+有一个完整的微观分子通信实验平台，这严重限制了分子通信
+领域的发展，成为该领域的瓶颈问题。针对这一个领域瓶颈，
+本课题组提出了以DNA为信息分子的微观分子通信实验平台，
+并初步完成了其中关键部件的DNA信息分子的发送器与接收器
+然而，针对DNA分子通信，领域内并没有相关的理论研究。但是
+，对实验平台的深入理解，离不开理论研究的指导。\\
 
-  本文利用COMSOL Multiphysics与MATLAB建立了该通信过程的三维模型，进行了
-  电化学仿真、化学动力学仿真以及扩散过程仿真。主要内容如下：
+针对以上问题，本毕业设计立足于课题组的现有的DNA分子通信
+实验平台，对其发送器部分开展理论研究。我们实现的DNA信息
+分子的发送器，是一个宏观电信号到微观DNA信号的转化接口。其
+主要原理是将锆离子$\ce{Zr4+}$作为粘合剂胶水，采用逐层自组装技术在
+金薄膜表面固定完成多层DNA/$\ce{Zr4+}$结构。通过电化学反应执行多层DNA
+结构的分解与可控释放。本毕业设计对以上的DNA分解与释放过程，
+进行完整的数学建模。具体而言，我们利用电化学反应模型、化学动
+力学模型与物理中的粒子自由扩散模型，研究DNA多层结构的分解、释
+放与传播的整体过程。利用两个软件，COMSOL Multiphysics 与 MATLAB，
+研究了这个过程并建立了DNA分解与释放过程的三维模型。并利用获得
+的模型，研究了关键参数对DNA分解与释放过程的影响，
+进而深入理解了DNA信息分子发送器的特征，指明了优化DNA信息分子发送器的具体方向。
+对进一步推进本课题组的微观分子通信实验平台的研究具有重要意义。\\
 
-  1)简要介绍了分子通信的基本原理与发展现状，包括利用LbL技术对DNA分子进行固定这一技术。
-  介绍了课题组的先前实验，说明了本文的研究意义与研究内容。介绍了COMSOL Multiphysics这一软件，
-  并列举了其在分子通信领域的运用实例。
-  
-  2)介绍了DNA/$\ce{Zr^4+}$LbL结构的组装过程以及理化性质。对该SMC系统的通信原理进行了探究，
-  描述了通信过程中的电化学反应、水解反应、电迁移及扩散过程。并对描述反应过程与粒子运动的
-  有关方程进行了详细说明。
+本文毕业设计的主要工作包含几个方面：
 
-  3)在COMSOL Multiphysics中对通信系统进行了三维建模，对上述三个过程进行了仿真，得到了
-  与先前实验相符的DNA浓度曲线，验证了对通信过程进行建模仿真可行性。
+1) 简要介绍了分子通信的基本原理与发展现状。介绍了课题组的微观分子通信实验平台的基本原理，
+阐明了了本毕业设计工作的研究内容与研究意义。
 
-  4)对通信系统的系统特征进行研究。讨论了激励信号的强度与持续时间对通信过程的影响讨，
-  信道中不同位置的浓度曲线以及系统的阈值。为SMC系统设计中的参数选择提供了依据。
+2) 介绍了DNA信息分子发送器中关键的多层DNA结构的组装过程以及理化性质。
+详细分析与讨论了DNA信息分子分解与释放过程中的电化学反应、水解反应、电迁移及扩散过程。
+并对表达以上过程与粒子运动过程的理论方程进行了详细介绍与说明。
+
+3) 介绍了本毕业设计的关键软件COMSOL Multiphysics 
+在分子通信领域的运用实例。利用COMSOL Multiphysics 对DNA信息分子分解、
+释放、传播过程中的电化学反应、水解反应、电迁移及扩散过程，
+进行了三维建模与仿真，得到了与先前实验相符的 DNA 浓度变化曲线数据
+，验证了对DNA信息分子发送器建模所获得模型的有效性与正确性。
+
+4) 对DNA信息分子发送器的系统特征进行研究。讨
+论了激励电压信号的强度与持续时间对DNA信息分子发送过程的影响，
+并获得信道中不同位置的DNA浓度变化曲线并研究了DNA信息分子发送器的阈值。
+深入理解了DNA信息分子发送器的特征，指明了优化DNA信息分子发送器的具体方向。
+
 
 
 \end{abstract}
 
 \begin{abstract*}
-  Shanghai Jiao Tong University (SJTU) is a key university in China. SJTU was
-  founded in 1896. It is one of the oldest universities in China. The University
-  has nurtured large numbers of outstanding figures include JIANG Zemin, DING
-  Guangen, QIAN Xuesen, Wu Wenjun, WANG An, etc.
+Molecular communication is an important communication scheme to establish a nano-machine network, which can solve the current problem that the limited capacity of a single nanomachine makes it difficult to carry out any concrete applications. The nano-network built by molecular communication technology can enable the entire nano-machine group to perform more complex tasks in a wider range, which is beneficial to the development of nano-machine applications, such as micro-surgery through the cooperation of a large number of nano-machines or drug delivery inside the human body. Therefore, molecular communication is a promising research direction and has received extensive attention.\\
 
-  SJTU has beautiful campuses, Bao Zhaolong Library, Various laboratories. It
-  has been actively involved in international academic exchange programs. It is
-  the center of CERNet in east China region, through computer networks, SJTU has
-  faster and closer connection with the world.
+At present, the main research work in the field of molecular communication is concentrated on theory. So far, there is no complete microscopic molecular communication experimental platform, which seriously limits the development of the field of molecular communication and becomes a bottleneck in this field. Aiming at the bottleneck in this field, our group proposed a micro-molecular communication experiment platform using DNA as the information molecule, and completed the transmitter and receiver of DNA information molecules, which are the key components of the experiment platform. However, there is no relevant theoretical research on DNA molecular communication in this field. However, a thorough understanding of the experimental platform is inseparable from the guidance of theoretical research.\\
+
+To solve the above problems, this work is based on the existing DNA molecular communication experimental platform of our group and carries out theoretical research on its transmitter part. The transmitter of DNA information molecules that we implemented is a conversion interface from macroscopic electrical signals to microscopic DNA signals. Its main principle is to use zirconium ion Zr4+ as the adhesive glue, and use the layer-by-layer self-assembly technology to fix the multilayer DNA/Zr4+ structure on the surface of the gold film. The decomposition and controllable release of multilayer DNA structures are performed through electrochemical reactions. This work carries out complete mathematical modeling on the above DNA decomposition and release process. Specifically, we use the electrochemical reaction model, chemical kinetic model and particle free diffusion model in physics to study the overall process of decomposition, release and propagation of the DNA multilayer structure. Using two softwares, COMSOL Multiphysics and MATLAB, this process was studied and a three-dimensional model of DNA decomposition and release process was established. Using the obtained model, the influence of key parameters on the process of DNA decomposition and release was studied, and then the characteristics of the DNA information molecular transmitter were deeply understood, and the specific direction of optimizing the DNA information molecular transmitter was pointed out. It is of great significance to further promote the research of the micro-molecular communication experiment platform in our group.\\
+
+The main work of this work includes the following aspects:
+
+1) A brief introduction to the basic principles and development status of molecular communication. The basic principles of the micro-molecular communication experiment platform of our group were introduced, and the research content and significance of the graduation project work were clarified. The application example of the key software COMSOL Multiphysics of this work in the field of molecular communication is introduced.
+
+2) The assembly process and physical and chemical properties of the key multi-layer DNA structure in the DNA information molecular transmitter are introduced. The electrochemical reaction, hydrolysis reaction, electromigration and diffusion process during the decomposition and release of DNA information molecules are analyzed and discussed in detail. The theoretical equations expressing the above process and particle motion process are introduced and explained in detail.
+
+3) Using COMSOL Multiphysics, three-dimensional modeling and simulation were carried out on the electrochemical reaction, hydrolysis reaction, electromigration and diffusion process of DNA information molecule decomposition, release and propagation. The obtained DNA concentration curve data from our established model agrees with the previous experimental data. Thus correctness of the obtained model of our DNA information molecular transmitter is validated.
+
+4) Study the system characteristics of DNA information molecular transmitter. The influence of the intensity and duration of the excitation voltage signal on the transmission process of DNA information molecules is discussed, and the DNA concentration change curves at different positions in the channel are obtained and the threshold of the DNA information molecule transmitter is studied. In-depth understanding of the characteristics of DNA information molecular transmitter is achieved which points out the specific direction of optimization of our DNA information molecular transmitter.
+
 \end{abstract*}

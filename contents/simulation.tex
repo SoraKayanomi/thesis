@@ -1,7 +1,53 @@
 % !TEX root = ../main.tex
-\chapter{建模与仿真}
+\chapter{通信过程的建模与仿真}
+\section{引言}
+COMSOL Multiphysics是本研究所用到的仿真平台，它在
+求解本研究所涉及的多物理场问题方面的卓越能力，在分子通信领域也有大量运用实例。
 
-\section{求解过程的简述}
+利用COMSOL Multiphysics对通信过程中的主要理化反应进行建模仿真的主要步骤是
+1)先建立物理模型，
+2)选择多物理场中的约束方程，3)确定系统参数，4)最后进行运算求解。
+
+利用COMSOL Multiphysics与MATLAB软件之间的接口可以进行不同反应的仿真结果的传递，
+实现多个反应之间的耦合。
+
+将仿真结果与先前实验结果相比照，可以评价仿真取得了良好效果。
+\section{通信过程仿真平台COMSOL Multiphysics的介绍}
+在上一章我们提到了，用数学方法求解真实世界的物理现象的核心是使用约束方程对其进行数值求解，
+一个复杂的理化反应过程需要用大量偏微分方程（PDE）描述，这对求解器提出了考验。
+这一节我们将介绍COMSOL Multiphysics在多物理场仿真上的优异表现。
+这也是本研究采用该软件对通信过程中的主要理化反应进行建模仿真的原因。
+\subsection{COMSOL Multiphysics的优势}
+COMSOL Multiphysics是由COMSOL公司开发的一款功能强大的多物理场仿真软件，
+它最显著的特点和优势就是对
+多物理场问题的求解\cite{李淑君2014基于}。COMSOL Multiphysics
+可以实现从几何建模、定义材料属性、
+设置物理场来描述物理现象，到求解模型的完整过程，
+以及为提供准确可信的结果对模型的后处理。
+
+多物理场是由大量偏微分方程（PDE）描述的，COMSOL Multiphysics
+内置了这些约束方程，在
+对多物理的建模与仿真时，只需要用户根据研究对象，选择合适的
+偏微分方程或自定义方程，并进行组合，这样就可以实现多物理条件下的仿真\cite{王瑞2013基于}。
+
+COMSOL Multiphysics的界面友好，操作灵活，仿真效果好，
+而且在电气、化工、力学、流体等方面，有许多模板与案例，学习成本低。
+还设置了与CAD、MATLAB这类软件联合编程的接口，这都使得COMSOL Multiphysics
+成为一个应用广泛的有限元仿真软件。
+\subsection{COMSOL Multiphysics的应用}
+在分子通信的研究上，COMSOL Multiphysics也被大量运用。如\parencite{10.1007/978-3-319-67380-6_19}一文中
+提到了在研究嵌入分子膜的纳米通信设备时，利用COMSOL Multiphysics对电场的分布进行
+仿真。Sean McCutcheon与Robert Majeska等人在研究基于树突神经细胞的细胞间通讯装置时，
+也用到了COMSOL Multiphysics对小分子扩散和流动状况进行仿真研究\cite{McCutcheon2017}。
+在\parencite{10.1007/978-81-322-1007-8_56}一文中，研究者也使用了COMSOL Multiphysics
+对纳米传感器的原理进行了建模仿真，并作为实验的对照，结果表明理论模型的结果与实际
+实验结果最大误差为3\%。
+
+
+
+
+
+\section{求解分子通信过程的简述}
 根据第二章中推导的反应过程，仿真的过程主要分为以下三步：
 
 1)在COMSOL Multiphysics中，对通电时发生的电化学反应进行建模，得到阴极极板表面的平均$\ce{OH-}$浓度随
@@ -83,7 +129,7 @@
     \label{fig:cOH_distribution}
 \end{figure}
 
-如图~\ref{fig:cOH1}所示，在运行的前10$s$，由于电信号的激励，电化学反应不断发生，
+如图~\ref{fig:cOH_t}所示，在运行的前10$s$，由于电信号的激励，电化学反应不断发生，
 阴极表面的$c_{\ce{OH-}}$迅速增加，但由于电荷堆积，行程双电层，抑制反应发生，所以
 $c_{\ce{OH-}}$的增长速度在变慢。
 运行10$s$后，施加的电势被去除，电化学反应停止，溶液中的${\ce{OH-}}$离子主要做自由扩散，
@@ -155,30 +201,30 @@ $c_{\ce{OH-}}$的增长速度在变慢。
 不再释放新的DNA到溶液中，此时DNA主要做自由扩散运动，浓度梯度越小时，扩散速度越慢。第65$s$显示的是，在第二次施加电势之后，新的DNA
 被释放到溶液环境中，重复上述过程。
 
-\begin{figure}[H]
+\begin{figure}[p]
     \centering
     \subcaptionbox{运行1$s$时DNA浓度等值面}% 
-                    [6.4cm]{\includegraphics[height=5cm]{cDNA1s.png}}
+                    [6.4cm]{\includegraphics[width=7cm]{cDNA1s.png}}
     \hspace{1cm}
     \subcaptionbox{运行6$s$时DNA浓度等值面}%
                     %
-                    [6.4cm]{\includegraphics[height=5cm]{cDNA6s.png}}
+                    [6.4cm]{\includegraphics[width=7cm]{cDNA6s.png}}
     \centering
     \subcaptionbox{运行12$s$时DNA浓度等值面}%
                     %
-                    [6.4cm]{\includegraphics[height=5cm]{cDNA12s.png}}
+                    [6.4cm]{\includegraphics[width=7cm]{cDNA12s.png}}
     \hspace{1cm}
     \subcaptionbox{运行25$s$时DNA浓度等值面}%
                     %
-                    [6.4cm]{\includegraphics[height=5cm]{cDNA25s.png}}
+                    [6.4cm]{\includegraphics[width=7cm]{cDNA25s.png}}
     \centering
     \subcaptionbox{运行50$s$时DNA浓度等值面}%
                     %
-                    [6.4cm]{\includegraphics[height=5cm]{cDNA50s.png}}
+                    [6.4cm]{\includegraphics[width=7cm]{cDNA50s.png}}
     \hspace{1cm}
     \subcaptionbox{运行65$s$时DNA浓度等值面}%
                     %
-                    [6.4cm]{\includegraphics[height=5cm]{cDNA65s.png}}
+                    [6.4cm]{\includegraphics[width=7cm]{cDNA65s.png}}
     \caption{DNA浓度等值面与运行时间的关系}
     \label{fig:cDNA1}
 \end{figure}
@@ -198,7 +244,7 @@ $c_{\ce{OH-}}$的增长速度在变慢。
 距离物质源距离为$x$的位置的该物质浓度曲线$\varphi(x,t)$随时间变化的函数：
 
 \begin{equation}
-    \varphi(x，t)= \frac{1}{\sqrt {4 \pi Dt}} exp(-\frac{x^2}{4Dt})
+    \varphi(x,t)= \frac{1}{\sqrt {4 \pi Dt}} exp(-\frac{x^2}{4Dt})
 \end{equation}
 
 根据上式，我们假设一种物质$D=0.05m^2\cdot s^{-1}$，在物质源为$x=1m$的位置观测其
@@ -226,3 +272,10 @@ $c_{\ce{OH-}}$的增长速度在变慢。
 可以发现，对DNA扩散过程进行的仿真，很好的还原了DNA分子在电场力与浓度梯度力共同作用下
 的扩散情况。将该探针处DNA浓度的变化曲线与课题组所做的实验结果相比照，都表现了DNA浓度该变量会
 随释放次数的增加而减少这一现象。
+
+\section{本章小结}
+本章介绍了本毕业设计的关键软件COMSOL Multiphysics 在分子通信领域的运用实例。
+利用COMSOL Multiphysics 与MATLAB对DNA信息分子分解、释放、传播过程中的电化学反应
+、水解反应、电迁移及扩散过程，进行了三维建模与仿真，得到了与先前实验相符的
+ DNA 浓度变化曲线数据，很好的还原了DNA分子在电场力与浓度梯度力共同作用下
+ 的扩散情况，验证了对DNA信息分子发送器建模所获得模型的有效性与正确性。
